@@ -13,8 +13,13 @@ activities: Activity[]
 activeId: Activity['id']
 }
 
+const localStorgeActivities = (): Activity[]=> {
+const activities = localStorage.getItem('activities')
+return activities ?  JSON.parse(activities) : []
+}
+
 export const initialState : ActivityState = {
-activities:[],
+activities: localStorgeActivities(),
 activeId: ''
 }
 
